@@ -26,7 +26,7 @@ export function register() {
 		}
 
 		window.addEventListener('load', () => {
-			const swUrl = `https://corona-tracker-gitesh.herokuapp.com/js/service-worker.js`;
+			const swUrl = `https://corona-tracker-gitesh.herokuapp.com/js/serviceWorker.js`;
 
 			if (isLocalhost) {
 				checkValidServiceWorker(swUrl);
