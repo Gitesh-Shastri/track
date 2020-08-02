@@ -21,7 +21,7 @@ app.use(cors());
 app.use(serve(__dirname + '/public'));
 
 render(app, {
-	root: path.join(__dirname, 'views'),
+	root: path.join(__dirname, 'public'),
 	layout: 'index',
 	viewExt: 'html',
 	cache: false,
