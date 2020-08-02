@@ -13,11 +13,11 @@ export function register() {
 		}
 
 		window.addEventListener('load', () => {
-			const swUrl = `https://corona-tracker-gitesh.herokuapp.com/js/sw_cached_pages.js`;
+			const swUrl = `https://corona-tracker-gitesh.herokuapp.com/js/service-worker.js.js`;
 
 			if (isLocalhost) {
 				navigator.serviceWorker
-			      .register('https://corona-tracker-gitesh.herokuapp.com/js/sw_cached_pages.js')
+			      .register('https://corona-tracker-gitesh.herokuapp.com/js/service-worker.js.js')
 			      .then(reg => console.log('Service Worker: Registered (Pages)'))
 			      .catch(err => console.log(`Service Worker: Error: ${err}`));
 			} 
