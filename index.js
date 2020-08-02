@@ -70,7 +70,7 @@ function readDataFromNet() {
 router.get('/get_tracker_data', async (ctx) => {
 	let state = [];
 	data = await readFile();
-	if (data.status == 'failure' || data.data.time_elapse > 90000) {
+	if (data.status == 'failure' || data.data.time_elapse > 2000) {
 		resp_data = await readDataFromNet();
 		ctx.body = resp_data.data;
 	} else {
