@@ -7,10 +7,4 @@ caches
 	.then((cache) => {
 		console.log('Service Worker Caching Files');
 		cache.addAll(cache_files);
-	})
-	.then(self.skipWaiting())	
-
-self.addEventListener('fetch', (e) => {
-	console.log('Service Worker Fetching Files');
-	e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
-});
+	});
