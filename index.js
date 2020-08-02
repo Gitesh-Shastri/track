@@ -6,6 +6,7 @@ const cors = require('koa-cors');
 const json = require('koa-json');
 const render = require('koa-ejs');
 const serve = require('koa-static');
+const logger = require('koa-logger');
 const koaRouter = require('koa-router');
 const { resolve } = require('path');
 
@@ -15,7 +16,7 @@ const router = new koaRouter();
 const port = process.env.PORT || 3000;
 
 app.use(json());
-
+app.use(logger());
 app.use(cors());
 
 app.use(serve(__dirname + '/public'));
@@ -70,7 +71,8 @@ function readDataFromNet() {
 router.get('/get_tracker_data', async (ctx) => {
 	let state = [];
 	data = await readFile();
-	if (data.status == 'failure' || data.data.time_elapse > 2000) {
+	console.log(data);
+	if (data.status == 'failure' || data.data.time_elapse > 900000) {
 		resp_data = await readDataFromNet();
 		ctx.body = resp_data.data;
 	} else {
