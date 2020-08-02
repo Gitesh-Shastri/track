@@ -13,5 +13,13 @@
   <body>
     <div id="root"></div>
     <script src="./js/bundle.js" ></script>
+    <script type="text/javascript">
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./js/service-worker.js')
+            .then(reg => console.log('Service Worker: Registered (Pages)'))
+            .catch(err => console.log(`Service Worker: Error: ${err}`));
+      }
+    </script>
   </body>
 </html>
