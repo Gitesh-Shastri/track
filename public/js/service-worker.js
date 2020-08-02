@@ -15,20 +15,6 @@ self.addEventListener('install', (e) => {
 	);
 });
 
-self.addEventListener('activate', (e) => {
-	e.waitUntil(
-		caches.keys().then((cacheNames) => {
-			return Promise.all(
-				cacheNames.map((cache) => {
-					if (cache !== 'v1') {
-						return caches.delete(cache);
-					}
-				})
-			);
-		})
-	);
-});
-
 self.addEventListener('fetch', (e) => {
 	e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
 });
